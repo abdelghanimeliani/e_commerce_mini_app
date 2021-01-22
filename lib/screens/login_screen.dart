@@ -1,4 +1,5 @@
 import 'package:e_commerce_mini_app/const.dart';
+import 'package:e_commerce_mini_app/screens/signin_screen.dart';
 import 'package:e_commerce_mini_app/widgerts/costom_text_field.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -69,10 +70,17 @@ class LoginScreen extends StatelessWidget{
                color: Colors.white
              ),
              ),
-             Text("SIGN IN",
-               style: TextStyle(
-                   fontSize: 16,
 
+             
+             GestureDetector(
+               onTap:() {
+                 Navigator.pushNamed(context, SignupScreen.id);
+               },
+               child: Text("SIGN IN",
+                 style: TextStyle(
+                     fontSize: 16,
+
+                 ),
                ),
              ),
 
