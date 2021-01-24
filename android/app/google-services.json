@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "282324902213",
+    "project_id": "buyit-b2bf1",
+    "storage_bucket": "buyit-b2bf1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:282324902213:android:d1be22e6e9a630f346de2c",
+        "android_client_info": {
+          "package_name": "com.example.e_commerce_mini_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "282324902213-q7snm6m1378meidinlkg4n00n98inakn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAda7XvXWzFh-KhVHExMTWBmY5uvTIUHcs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "282324902213-q7snm6m1378meidinlkg4n00n98inakn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
