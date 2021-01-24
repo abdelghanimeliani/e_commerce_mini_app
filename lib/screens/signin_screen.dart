@@ -91,11 +91,9 @@ class SignupScreen extends StatelessWidget {
                     child: Text("LOGIN",
                       style: TextStyle(
                         fontSize: 16,
-
                       ),
                     ),
                   ),
-
                 ],
               )
             ],
