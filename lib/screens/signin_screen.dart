@@ -1,10 +1,13 @@
+import 'package:e_commerce_mini_app/services/auth.dart';
 import 'package:e_commerce_mini_app/widgerts/costom_text_field.dart';
 import 'package:flutter/material.dart';
-
+import 'package:firebase_auth/firebase_auth.dart';
 import '../const.dart';
 
 class SignupScreen extends StatelessWidget {
+  String _email, _password ,_name;
   static String id = "signup";
+  final _auth = Auth();
   GlobalKey<FormState> _globalKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
@@ -41,15 +44,37 @@ class SignupScreen extends StatelessWidget {
               ),
               SizedBox(height: weidth*0.1,),
 
-              CustomTextField(hint: "name", icon: Icons.perm_identity),
+              CustomTextField(hint: "name",
+                  icon: Icons.perm_identity,
+              onClick: (value){
+                _name = value ;
+              },
+              ),
               //email
 
               SizedBox(height: weidth*0.02,),
-              CustomTextField(icon: Icons.email,hint: "ENTER YOUR E-MAIL"),
+
+              //pour email
+
+
+              CustomTextField(icon: Icons.email,
+                  hint: "ENTER YOUR E-MAIL",
+                onClick: (value){
+                  _email = value ;
+                },),
+
+
               // just pour faire un espace
 
               SizedBox(height:weidth*0.02 ,),
-              CustomTextField(icon: Icons.lock,hint: "ENTER YOUR PASSWORD"),
+
+              //pour le mot de passe
+
+              CustomTextField(icon: Icons.lock,
+                  hint: "ENTER YOUR PASSWORD",
+                onClick: (value){
+                  _password = value ;
+                },),
               SizedBox(height:weidth*0.09 ,),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 210),
@@ -58,7 +83,8 @@ class SignupScreen extends StatelessWidget {
                   onPressed: (){
                   if(_globalKey.currentState.validate())
                     {
-                      // creat user account
+                      // creat user
+                     var  urer =  _auth.signUp(_email, _password);
                     }
                 },
                   padding: EdgeInsets.symmetric(vertical: 12),
@@ -102,3 +128,4 @@ class SignupScreen extends StatelessWidget {
     );
   }
 }
+

@@ -5,6 +5,7 @@ import '../const.dart';
 class CustomTextField extends StatelessWidget {
   final String hint ;
   final IconData icon ;
+  final Function onClick;
 String _err ()
 {
   switch(hint){
@@ -13,8 +14,11 @@ String _err ()
     case "name" : return "name is empty";
   }
 }
-  const CustomTextField({
-    Key key, @required this.hint, @required this.icon,
+  const CustomTextField(
+      {@required this.onClick,
+        Key key,
+        @required this.hint,
+        @required this.icon,
   }) : super(key: key);
 
   @override
@@ -31,6 +35,10 @@ String _err ()
             return null ;
           }
         },
+        // pour rendre le textField du mot de passe cache les caractère !
+        obscureText: hint == 'Enter your password' ? true : false,
+        //pour obtenir le texte du textfield
+        onSaved: onClick,
         cursorColor: kMainColor,
         decoration: InputDecoration(
           hintText: hint,

@@ -3,16 +3,19 @@ import 'package:e_commerce_mini_app/screens/signin_screen.dart';
 import 'package:e_commerce_mini_app/widgerts/costom_text_field.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import '';
+
 
 class LoginScreen extends StatelessWidget{
   static String id = 'LoginScreen';
+  String _email, _password;
+
   //creat a key for a form
   GlobalKey<FormState> _globalKey = GlobalKey<FormState>();
 
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context)
+  {
     final double  weidth = MediaQuery.of(context).size.height;
    return Scaffold(
      backgroundColor:kMainColor ,
@@ -45,11 +48,23 @@ class LoginScreen extends StatelessWidget{
              ),
            ),
            SizedBox(height:weidth*0.1 ,),
-           CustomTextField(icon: Icons.email,hint: "ENTER YOUR E-MAIL"),
+           CustomTextField(icon: Icons.email,
+               hint: "ENTER YOUR E-MAIL",
+             onClick: (value){
+             _email = value ;
+             },
+           ),
            // just pour faire un espace
 
            SizedBox(height:weidth*0.02 ,),
-           CustomTextField(icon: Icons.lock,hint: "ENTER YOUR PASSWORD"),
+
+           // pour le mot de passe
+
+           CustomTextField(icon: Icons.lock,
+               hint: "ENTER YOUR PASSWORD",
+           onClick: (value){
+             _password = value ;
+           },),
            SizedBox(height:weidth*0.1 ,),
            Padding(
              padding: EdgeInsets.symmetric(horizontal: 210),
