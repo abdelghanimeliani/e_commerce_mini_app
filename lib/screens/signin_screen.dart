@@ -80,11 +80,11 @@ class SignupScreen extends StatelessWidget {
                 padding: EdgeInsets.symmetric(horizontal: 210),
 
                 child: FlatButton(
-                  onPressed: (){
+                  onPressed: ()async{
                   if(_globalKey.currentState.validate())
-                    {
-                      // creat user
-                     var  urer =  _auth.signUp(_email, _password);
+                    {// creat user
+                      _globalKey.currentState.save();
+                    final result= await _auth.signUp(_email, _password);
                     }
                 },
                   padding: EdgeInsets.symmetric(vertical: 12),

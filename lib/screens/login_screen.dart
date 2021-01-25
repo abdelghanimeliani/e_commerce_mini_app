@@ -1,5 +1,6 @@
 import 'package:e_commerce_mini_app/const.dart';
 import 'package:e_commerce_mini_app/screens/signin_screen.dart';
+import 'package:e_commerce_mini_app/services/auth.dart';
 import 'package:e_commerce_mini_app/widgerts/costom_text_field.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -8,6 +9,7 @@ import 'package:flutter/material.dart';
 class LoginScreen extends StatelessWidget{
   static String id = 'LoginScreen';
   String _email, _password;
+  Auth _auth = Auth();
 
   //creat a key for a form
   GlobalKey<FormState> _globalKey = GlobalKey<FormState>();
@@ -69,8 +71,11 @@ class LoginScreen extends StatelessWidget{
            Padding(
              padding: EdgeInsets.symmetric(horizontal: 210),
              child: FlatButton(
-               onPressed: (){
-                 _globalKey.currentState.validate();
+               onPressed: () async{
+                 if(_globalKey.currentState.validate()){
+                   _globalKey.currentState.save();
+                   final result = await _auth.signIn(_email, _password);
+                 };
                },
 
                padding: EdgeInsets.symmetric(vertical: 12),
@@ -106,11 +111,9 @@ class LoginScreen extends StatelessWidget{
                  child: Text("SIGN IN",
                    style: TextStyle(
                        fontSize: 16,
-
                    ),
                  ),
                ),
-
              ],
            )
          ],
