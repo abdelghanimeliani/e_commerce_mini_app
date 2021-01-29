@@ -1,4 +1,5 @@
 import 'package:e_commerce_mini_app/provider/modalhud.dart';
+import 'package:e_commerce_mini_app/screens/user/home_page.dart';
 import 'package:e_commerce_mini_app/services/auth.dart';
 import 'package:e_commerce_mini_app/widgerts/costom_text_field.dart';
 import 'package:flutter/material.dart';
@@ -96,6 +97,7 @@ class SignupScreen extends StatelessWidget {
                           _globalKey.currentState.save();
                           final result= await _auth.signUp(_email, _password);
                           modalHud.changeIsLoading(false);
+                          Navigator.of(context).pushNamed(HomePage.id);
                           }catch(e) {
                             modalHud.changeIsLoading(false);
                           Scaffold.of(context).showSnackBar(SnackBar(content: Text(e.message)));
