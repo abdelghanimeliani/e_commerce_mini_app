@@ -3,36 +3,40 @@ import 'package:flutter/material.dart';
 import '../const.dart';
 
 class CustomTextField extends StatelessWidget {
-  final String hint ;
-  final IconData icon ;
+  final String hint;
+  final IconData icon;
   final Function onClick;
-String _err ()
-{
-  switch(hint){
-    case "ENTER YOUR E-MAIL" : return "mail is empty";
-    case "ENTER YOUR PASSWORD" : return "password is empty";
-    case "name" : return "name is empty";
+  String _err() {
+    if (hint == "ENTER YOUR E-MAIL") {
+      return "mail is empty";
+    } else if (hint == "ENTER YOUR PASSWORD") {
+      return "password is empty";
+    } else if (hint == "name") {
+      return "name is empty";
+    } else {
+      return "something is wrong";
+    }
   }
-}
-  const CustomTextField(
-      {@required this.onClick,
-        Key key,
-        @required this.hint,
-        @required this.icon,
+
+  const CustomTextField({
+    @required this.onClick,
+    Key key,
+    @required this.hint,
+    @required this.icon,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 20,
-
+      padding: EdgeInsets.symmetric(
+        horizontal: 20,
       ),
       child: TextFormField(
-        validator: (val){
-          if(val.isEmpty){
+        validator: (val) {
+          if (val.isEmpty) {
             return _err();
-          }else{
-            return null ;
+          } else {
+            return null;
           }
         },
         // pour rendre le textField du mot de passe cache les caractère !
@@ -52,11 +56,11 @@ String _err ()
             borderRadius: BorderRadius.circular(20),
             borderSide: BorderSide(color: Colors.white),
           ),
-          focusedBorder:OutlineInputBorder(
+          focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(20),
             borderSide: BorderSide(color: Colors.white),
           ),
-          border :  OutlineInputBorder(
+          border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(20),
             borderSide: BorderSide(color: Colors.white),
           ),
