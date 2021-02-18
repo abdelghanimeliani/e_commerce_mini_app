@@ -1,5 +1,6 @@
 import 'package:e_commerce_mini_app/const.dart';
 import 'package:e_commerce_mini_app/screens/admin/add_product.dart';
+import 'package:e_commerce_mini_app/screens/admin/edit_product.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -21,7 +22,11 @@ class AdminHome extends StatelessWidget {
               onPressed: () {
                 Navigator.of(context).pushNamed(AddProduct.id);
               }),
-          RaisedButton(child: Text("edit product"), onPressed: () {}),
+          RaisedButton(
+              child: Text("edit product"),
+              onPressed: () {
+                Navigator.of(context).pushNamed(EditProduct.id);
+              }),
           RaisedButton(child: Text("view orders"), onPressed: () {}),
         ],
       ),
